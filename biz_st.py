@@ -131,3 +131,62 @@ col3.metric("Humidity", '86%', "4%")
 col4.metric('Pressure','1013 hPa','+12 hPa')
 
 st.divider()
+
+'# :blue[Streamlit 그래프]'
+import pandas as pd
+import numpy as np
+
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=["a", "b", "c"]
+)
+
+'#### :orange[st.area_chart()]'
+st.area_chart(chart_data)
+
+'#### :orange[st.line_chart()]'
+st.line_chart(chart_data)
+
+'#### :orange[st.bar_chart()]'
+st.bar_chart(chart_data)
+
+'#### :orange[st.scatter_chart()]'
+st.scatter_chart(chart_data)
+
+'#### :orange[st.map()]'
+df = pd.DataFrame(
+    np.random.randn(100, 2) / [100, 100] + [37.55, 126.92],
+    columns=["lat", "lon"],
+)
+st.map(df)
+
+st.divider() # 👈 구분선
+
+'''
+'#### :orange[st.map()]'
+df = pd.DataFrame(
+    np.random.randn(100, 2) / [100, 100] + [37.55, 126.92],
+    columns=["lat", "lon"],
+)
+
+위도 경도 데이터를 바탕으로 랜덤하게 점을 찍은거임
+
+
+**시각화 라이브러리**  
+Matplolib  
+Seaborn 통계시각화 라이브러리  
+Vega-Altair  
+Plotly 인터렉티브 그래프'''
+
+'# :blue[시각화 라이브러리]'
+
+'#### :orange[Matplotlib: st.pyplot()]'
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+fig, ax = plt.subplots()
+ax.plot(x, y)
+st.pyplot(fig) 
